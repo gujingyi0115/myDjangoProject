@@ -17,9 +17,18 @@ from django.contrib import admin
 from django.urls import path
 from blog.views import PostListView
 from blog.views import PostDetailView
+from blog.views import PostCreateView
+from blog.views import UpdatePostView
+from blog.views import DeletePostView
+from django.conf.urls.static import static
+from django.conf import settings 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',PostListView.as_view(),name='post-list'),
-    path("<pk>/", PostDetailView.as_view(), name='post-detail')
-]
+    path('create/', PostCreateView.as_view(), name='post-create'),
+    path("<pk>/", PostDetailView.as_view(), name='post-detail'),
+    path("<pk>/update/", UpdatePostView.as_view(), name='post-update'),
+    path("<pk>/delete/", DeletePostView.as_view(), name='post-delete'),
+    
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
