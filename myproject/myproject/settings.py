@@ -130,12 +130,12 @@ if DEBUG is True:
 else:
     STATIC_URL = '/static/'
               
-    STATIC_ROOT = '/var/www/env/immersive/myproject/static/'
+    STATIC_ROOT = '/var/www/env/myDjangoProject/myproject/static/'
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, '/var/www/env/immersive/myproject/static/')
+        os.path.join(BASE_DIR, '/var/www/env/myDjangoProject/myproject/static/')
     ]
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, '/var/www/env/immersive/myproject/media/')
+    MEDIA_ROOT = os.path.join(BASE_DIR, '/var/www/env/myDjangoProject/myproject/media/')
 
 
 
